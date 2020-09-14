@@ -16,14 +16,14 @@ namespace Utility.Middlewares
     internal class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger _logger;
+        private readonly ILogger<ExceptionMiddleware> _logger;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="next"></param>
         public ExceptionMiddleware(RequestDelegate next,
-            ILogger logger)
+            ILogger<ExceptionMiddleware> logger)
         {
             _next = next;
             _logger = logger;
