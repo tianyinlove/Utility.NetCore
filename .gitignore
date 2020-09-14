@@ -13,3 +13,7 @@
 /Utility.NetCore/Utility.NetCore/obj
 /Utility.NetCore/Utility.NetCore.Test/bin/Debug/netcoreapp3.1
 /Utility.NetCore/Utility.NetCore.Test/obj
+/Utility.NetCore/Utility.Abstractions/bin/Release
+/Utility.NetCore/Utility.ApiServiceClient/bin/Release
+/Utility.NetCore/Utility.Net/bin/Release
+/Utility.NetCore/Utility.NetCore/bin/Release
