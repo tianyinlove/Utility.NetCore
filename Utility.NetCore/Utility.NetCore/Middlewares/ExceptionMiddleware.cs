@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Utility.Model;
 using Utility.Extensions;
 
-namespace Utility.NetCore.Middlewares
+namespace Utility.Middlewares
 {
     /// <summary>
     /// 默认异常处理

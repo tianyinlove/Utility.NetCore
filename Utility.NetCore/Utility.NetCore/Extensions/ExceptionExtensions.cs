@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Utility.NetCore.Middlewares;
+using Utility.Middlewares;
 
 namespace Utility.Extensions
 {
