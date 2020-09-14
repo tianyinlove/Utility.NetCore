@@ -1,0 +1,13 @@
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\bin\Release\net45\Utility.Model.dll
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\bin\Release\net45\Utility.Model.pdb
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\obj\Release\net45\Utility.Model.AssemblyInfoInputs.cache
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\obj\Release\net45\Utility.Model.AssemblyInfo.cs
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\obj\Release\net45\Utility.Model.dll
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\obj\Release\net45\Utility.Model.pdb
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\obj\Release\net45\Utility.Model.csprojAssemblyReference.cache
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\bin\Release\net45\Utility.Model.dll
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\bin\Release\net45\Utility.Model.pdb
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\obj\Release\net45\Utility.Model.AssemblyInfoInputs.cache
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\obj\Release\net45\Utility.Model.AssemblyInfo.cs
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\obj\Release\net45\Utility.Model.dll
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\obj\Release\net45\Utility.Model.pdb

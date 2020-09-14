@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Utility.Abstractions</id>
+    <version>1.0.0</version>
+    <authors>Alex</authors>
+    <owners>Alex</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\bin\Release\net45\Utility.Abstractions.dll" target="lib\net45\Utility.Abstractions.dll" />
+    <file src="E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\bin\Release\netstandard2.0\Utility.Abstractions.dll" target="lib\netstandard2.0\Utility.Abstractions.dll" />
+  </files>
+</package>

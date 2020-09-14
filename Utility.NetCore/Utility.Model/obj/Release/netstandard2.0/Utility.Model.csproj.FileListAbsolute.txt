@@ -1,0 +1,14 @@
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\bin\Release\netstandard2.0\Utility.Model.deps.json
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\bin\Release\netstandard2.0\Utility.Model.dll
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\bin\Release\netstandard2.0\Utility.Model.pdb
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\obj\Release\netstandard2.0\Utility.Model.AssemblyInfoInputs.cache
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\obj\Release\netstandard2.0\Utility.Model.AssemblyInfo.cs
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\obj\Release\netstandard2.0\Utility.Model.dll
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Abstractions\obj\Release\netstandard2.0\Utility.Model.pdb
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\bin\Release\netstandard2.0\Utility.Model.deps.json
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\bin\Release\netstandard2.0\Utility.Model.dll
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\bin\Release\netstandard2.0\Utility.Model.pdb
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\obj\Release\netstandard2.0\Utility.Model.AssemblyInfoInputs.cache
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\obj\Release\netstandard2.0\Utility.Model.AssemblyInfo.cs
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\obj\Release\netstandard2.0\Utility.Model.dll
+E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Model\obj\Release\netstandard2.0\Utility.Model.pdb
