@@ -18,7 +18,7 @@ namespace Utility.Extensions
         /// <param name="assembly"></param>
         /// <param name="services"></param>
         /// <returns></returns>
-        public static IServiceCollection AddAssembly(this Assembly assembly, IServiceCollection services)
+        public static IServiceCollection AddAssembly(this IServiceCollection services, Assembly assembly)
         {
             AppDomain.CurrentDomain.GetAssemblies().Where(o => o.Equals(assembly)).ToList().ForEach(o =>
             {
