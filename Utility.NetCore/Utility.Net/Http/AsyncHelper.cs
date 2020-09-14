@@ -103,7 +103,7 @@ namespace Utility.Http
         /// <summary>
         /// A class to bridge synchronous asynchronous methods
         /// </summary>
-        public class AsyncBridge : IDisposable
+        internal class AsyncBridge : IDisposable
         {
             private ExclusiveSynchronizationContext CurrentContext;
             private SynchronizationContext OldContext;
@@ -227,7 +227,7 @@ namespace Utility.Http
         /// Creates a new AsyncBridge. This should always be used in
         /// conjunction with the using statement, to ensure it is disposed
         /// </summary>
-        public static AsyncBridge Wait
+        internal static AsyncBridge Wait
         {
             get { return new AsyncBridge(); }
         }
