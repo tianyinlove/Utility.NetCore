@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Utility.NetCore.Middlewares;
 
-namespace Utility.NetCore.Extensions
+namespace Utility.Extensions
 {
     /// <summary>
     /// 默认异常处理

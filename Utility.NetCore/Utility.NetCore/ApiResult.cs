@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using Utility.Model;
-using Utility.NetCore.Extensions;
+using Utility.Extensions;
 
 namespace Utility.NetCore
 {

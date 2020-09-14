@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 
-namespace Utility.NetCore.Signal
+namespace Utility.Signal
 {
     /// <summary>
     /// 单线程批处理任务队列

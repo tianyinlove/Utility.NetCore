@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Utility.NetCore.Extensions
+namespace Utility.Extensions
 {
     /// <summary>
     /// 加解密扩展

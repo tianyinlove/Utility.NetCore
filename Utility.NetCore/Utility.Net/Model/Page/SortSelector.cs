@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Utility.Model.Constants;
+using Utility.Constants;
 
 namespace Utility.Model.Page
 {

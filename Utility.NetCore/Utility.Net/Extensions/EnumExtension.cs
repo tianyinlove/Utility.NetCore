@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Utility.NetCore.Extensions
+namespace Utility.Extensions
 {
     /// <summary>
     /// 枚举扩展

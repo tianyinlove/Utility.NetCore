@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Utility.NetCore.Extensions
+namespace Utility.Extensions
 {
     /// <summary>
     /// 时间扩展

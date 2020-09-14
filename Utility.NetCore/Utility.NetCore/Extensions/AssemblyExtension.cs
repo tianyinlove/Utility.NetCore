@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Utility.NetCore.Extensions
+namespace Utility.Extensions
 {
     /// <summary>
     /// 程序集扩展

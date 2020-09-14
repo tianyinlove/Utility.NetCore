@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Utility.NetCore.Text
+namespace Utility.Text
 {
     /// <summary>
     /// 关键词搜索

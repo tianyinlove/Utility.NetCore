@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Utility.NetCore.Signal
+namespace Utility.Signal
 {
     /// <summary>
     /// 单线程任务队列

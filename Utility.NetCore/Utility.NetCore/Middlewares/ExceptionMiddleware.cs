@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Utility.Model;
-using Utility.NetCore.Extensions;
+using Utility.Extensions;
 
 namespace Utility.NetCore.Middlewares
 {

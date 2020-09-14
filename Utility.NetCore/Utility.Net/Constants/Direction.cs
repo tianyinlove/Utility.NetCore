@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Utility.Model.Constants
+namespace Utility.Constants
 {
     /// <summary>
-    /// 排序类型
+    /// 列表翻页方向
     /// </summary>
-    public enum SortType
+    public enum Direction
     {
         /// <summary>
-        /// 无效
+        /// 向上/刷新
         /// </summary>
-        None = 0,
+        Up = 1,
 
         /// <summary>
-        /// 顺序
+        /// 向下/更多
         /// </summary>
-        Asc = 1,
+        Down = 2,
 
         /// <summary>
-        /// 倒序
+        /// 取新数据
         /// </summary>
-        Desc = 2
+        ReNew = 0
     }
 }

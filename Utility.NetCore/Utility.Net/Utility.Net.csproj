@@ -6,6 +6,7 @@
     <Authors>Alex</Authors>
     <Description>通用扩展包</Description>
     <Version>1.0.1</Version>
+    <RootNamespace>Utility</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

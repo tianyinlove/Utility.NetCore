@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Threading;
 
-namespace Utility.NetCore.Signal
+namespace Utility.Signal
 {
     /// <summary>
     /// 单线程任务队列
