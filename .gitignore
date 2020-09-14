@@ -3,3 +3,13 @@
 ################################################################################
 
 /Utility.NetCore/.vs/Utility.NetCore/v16
+/Utility.NetCore/Utility.Abstractions/bin/Debug/netstandard2.0
+/Utility.NetCore/Utility.Abstractions/obj
+/Utility.NetCore/Utility.ApiServiceClient/bin/Debug/netstandard2.0
+/Utility.NetCore/Utility.ApiServiceClient/obj
+/Utility.NetCore/Utility.Net/bin/Debug
+/Utility.NetCore/Utility.Net/obj
+/Utility.NetCore/Utility.NetCore/bin/Debug/netstandard2.0
+/Utility.NetCore/Utility.NetCore/obj
+/Utility.NetCore/Utility.NetCore.Test/bin/Debug/netcoreapp3.1
+/Utility.NetCore/Utility.NetCore.Test/obj
