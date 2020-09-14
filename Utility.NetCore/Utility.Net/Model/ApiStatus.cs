@@ -10,6 +10,25 @@ namespace Utility.Model
     public class ApiStatus
     {
         /// <summary>
+        /// 
+        /// </summary>
+        public ApiStatus()
+        {
+            Code = 0;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="msg"></param>
+        public ApiStatus(int code, string msg)
+        {
+            Code = code;
+            Msg = msg;
+        }
+
+        /// <summary>
         /// 接口状态
         /// </summary>
         public int Code { get; set; } = 0;

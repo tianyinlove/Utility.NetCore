@@ -13,9 +13,27 @@ namespace Utility.NetCore
     public class ApiResult : IActionResult
     {
         /// <summary>
+        /// 
+        /// </summary>
+        public ApiResult()
+        {
+            Result = new ApiStatus();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="msg"></param>
+        public ApiResult(int code, string msg)
+        {
+            Result = new ApiStatus(code, msg);
+        }
+
+        /// <summary>
         /// 响应的状态消息
         /// </summary>
-        public ApiStatus Result { get; set; } = new ApiStatus();
+        public ApiStatus Result { get; set; }
 
         /// <summary>
         /// 
@@ -44,6 +62,25 @@ namespace Utility.NetCore
     /// <typeparam name="T"></typeparam>
     public class ApiResult<T> : ApiResult
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public ApiResult()
+        {
+            Result = new ApiStatus();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="msg"></param>
+        public ApiResult(T data)
+        {
+            Result = new ApiStatus();
+            Detail = data;
+        }
+
         /// <summary>
         /// 具体协议自行定义JSON的对象代入[可选填项]（缺省可以null或空对象{}，甚至不包含该字段）
         /// </summary>
