@@ -11,6 +11,23 @@ namespace Utility.Extensions
     public static class CryptographyExtension
     {
         /// <summary>
+        /// 用sha1计算hash
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string Sha1(this string text)
+        {
+            if (text == null)
+            {
+                return null;
+            }
+            using (var sha1 = SHA1.Create())
+            {
+                return BitConverter.ToString(sha1.ComputeHash(Encoding.UTF8.GetBytes(text))).ToLower().Replace("-", "");
+            }
+        }
+
+        /// <summary>
         /// 用md5计算hash
         /// </summary>
         /// <param name="text"></param>

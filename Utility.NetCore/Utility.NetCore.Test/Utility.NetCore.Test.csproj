@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Utility.NetCore\Utility.NetCore.csproj" />
+    <ProjectReference Include="..\Utility.Net\Utility.Net.csproj" />
   </ItemGroup>
 
 </Project>
