@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Utility.Model;
 using Utility.Extensions;
+using Utility.Log;
 
 namespace Utility.Middlewares
 {
@@ -16,17 +16,14 @@ namespace Utility.Middlewares
     internal class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger<ExceptionMiddleware> _logger;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="next"></param>
-        public ExceptionMiddleware(RequestDelegate next,
-            ILogger<ExceptionMiddleware> logger)
+        public ExceptionMiddleware(RequestDelegate next)
         {
             _next = next;
-            _logger = logger;
         }
 
         /// <summary>
@@ -55,7 +52,7 @@ namespace Utility.Middlewares
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "服务器异常");
+                Logger.Error("服务器异常", ex);
                 var result = new ApiData
                 {
                     Result = new ApiStatus
