@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Utility.Model;
 using Utility.Extensions;
 using Utility.Log;
+using Utility.Constants;
 
 namespace Utility.Middlewares
 {
@@ -52,7 +53,7 @@ namespace Utility.Middlewares
             }
             catch (Exception ex)
             {
-                Logger.Error("服务器异常", ex);
+                Logger.WriteLog(LogLevel.Error, "服务器异常", ex);
                 var result = new ApiData
                 {
                     Result = new ApiStatus

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Utility.Http;
 using Utility.Extensions;
+using Utility.Log;
+using Utility.Constants;
 
 namespace Utility.NetCore.TestWeb.Controllers
 {
@@ -18,16 +19,14 @@ namespace Utility.NetCore.TestWeb.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController()
         {
-            _logger = logger;
         }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            Logger.WriteLog(LogLevel.Info,"测试");
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

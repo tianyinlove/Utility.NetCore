@@ -21,3 +21,7 @@
 /Utility.NetCore/Utility.NetCore.TestWeb/obj
 /Utility.NetCore/Utility.NetCore.TestWeb/bin/Release/netcoreapp3.1
 /Utility.NetCore/Utility.NetCore/bin/Debug
+/Utility.NetCore/Utility.Log/bin/Release
+/Utility.NetCore/.vs/Utility.NetCore/config
+/Utility.NetCore/Utility.Log/obj
+/Utility.NetCore/Utility.NetCore.TestWeb/bin/Debug/netcoreapp3.1
