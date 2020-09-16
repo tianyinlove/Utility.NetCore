@@ -19,8 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Utility.Logging\Utility.Log.csproj" />
-    <ProjectReference Include="..\Utility.Log\Utility.Log.csproj" />
+    <ProjectReference Include="..\Utility.NetLog\Utility.NetLog.csproj" />
     <ProjectReference Include="..\Utility.Net\Utility.Net.csproj" />
   </ItemGroup>
 

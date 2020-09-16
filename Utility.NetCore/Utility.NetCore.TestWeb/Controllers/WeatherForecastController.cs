@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Utility.Http;
 using Utility.Extensions;
-using Utility.Log;
 using Utility.Constants;
+using Utility.NetLog;
 
 namespace Utility.NetCore.TestWeb.Controllers
 {

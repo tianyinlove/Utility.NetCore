@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using Utility.Configuration;
 using Utility.Constants;
-using Utility.Log;
+using Utility.NetLog;
 
 namespace Utility.Queues
 {

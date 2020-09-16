@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility.Net", "Utility.Net\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility.NetCore.TestWeb", "Utility.NetCore.TestWeb\Utility.NetCore.TestWeb.csproj", "{38E6BFE2-8664-488D-8690-13C4E5CD8E7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility.Log", "Utility.Log\Utility.Log.csproj", "{EE579D3C-60CB-45A1-93E9-42756B4D126F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility.NetLog", "Utility.NetLog\Utility.NetLog.csproj", "{4F1E14D8-CF86-4679-8F5D-9568B6764268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{38E6BFE2-8664-488D-8690-13C4E5CD8E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38E6BFE2-8664-488D-8690-13C4E5CD8E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38E6BFE2-8664-488D-8690-13C4E5CD8E7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE579D3C-60CB-45A1-93E9-42756B4D126F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE579D3C-60CB-45A1-93E9-42756B4D126F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE579D3C-60CB-45A1-93E9-42756B4D126F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE579D3C-60CB-45A1-93E9-42756B4D126F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F1E14D8-CF86-4679-8F5D-9568B6764268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F1E14D8-CF86-4679-8F5D-9568B6764268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F1E14D8-CF86-4679-8F5D-9568B6764268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F1E14D8-CF86-4679-8F5D-9568B6764268}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,7 @@ using Utility.Extensions;
 using Utility.Queues;
 using System.Web;
 
-namespace Utility.Log
+namespace Utility.NetLog
 {
     /// <summary>
     /// 日志

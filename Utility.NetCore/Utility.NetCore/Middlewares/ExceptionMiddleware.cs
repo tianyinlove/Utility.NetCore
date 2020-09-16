@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Utility.Model;
 using Utility.Extensions;
-using Utility.Log;
+using Utility.NetLog;
 using Utility.Constants;
 
 namespace Utility.Middlewares

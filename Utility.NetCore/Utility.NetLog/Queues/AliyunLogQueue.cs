@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Utility.Configuration;
 using Utility.Constants;
-using Utility.Log;
+using Utility.NetLog;
 using AliLogInfo = Aliyun.Api.LogService.Domain.Log.LogInfo;
 
 namespace Utility.Queues

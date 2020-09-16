@@ -6,9 +6,10 @@
     <Authors>Alex</Authors>
     <Description>日志组件</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>Utility.Log</PackageId>
-    <Product>Utility.Log</Product>
-    <AssemblyName>Utility.Log</AssemblyName>
+    <PackageId>Utility.NetLog</PackageId>
+    <Product>Utility.NetLog</Product>
+    <AssemblyName>Utility.NetLog</AssemblyName>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net45'">

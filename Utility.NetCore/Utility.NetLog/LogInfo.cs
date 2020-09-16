@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Utility.Constants;
 
-namespace Utility.Log
+namespace Utility.NetLog
 {
     /// <summary>
     /// 日志信息
