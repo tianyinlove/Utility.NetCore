@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -65,6 +66,28 @@ namespace Utility.Extensions
         public static bool IsPhone(this string value)
         {
             return Regex.IsMatch(value, @"^1[\d]{10}$");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="flag">默认按(,|)拆分</param>
+        /// <returns></returns>
+        public static List<string> ToList(this string str, string[] flag)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return new List<string>();
+            }
+            else
+            {
+                if (flag == null)
+                {
+                    flag = new string[] { ",", "|" };
+                }
+                return str.Split(flag, System.StringSplitOptions.RemoveEmptyEntries).ToList();
+            }
         }
 
     }
