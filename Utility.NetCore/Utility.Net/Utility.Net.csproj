@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Alex</Authors>
     <Description>通用扩展包</Description>
-    <Version>1.0.8</Version>
+    <Version>1.0.9</Version>
     <RootNamespace>Utility</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
@@ -15,6 +15,7 @@
     <DefineConstants>$(DefineConstants);NET_STD</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="5.3.2" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net45'">
