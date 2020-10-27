@@ -22,12 +22,12 @@ namespace Utility.Text
         /// <typeparam name="T"></typeparam>
         /// <param name="datas">数据列表</param>
         /// <param name="titleList">标题键值对，如果多单元格合并可用("A1:A2", "日期")</param>
-        /// <param name="columnNames">指定导出数据列</param>
+        /// <param name="columnNames">指定导出数据列和数据格式("Date","{0:yyyy/MM}")</param>
         /// <param name="sheetName">表名</param>
         /// <param name="isProtected">是否加密码</param>
         /// <param name="password">密码</param>
         /// <returns></returns>
-        public static Byte[] GetByteToExportExcel<T>(List<T> datas, List<Dictionary<string, string>> titleList, List<string> columnNames = null, string sheetName = "Sheet", bool isProtected = false, string password = "")
+        public static Byte[] GetByteToExportExcel<T>(List<T> datas, List<Dictionary<string, string>> titleList, Dictionary<string, string> columnNames = null, string sheetName = "Sheet", bool isProtected = false, string password = "")
         {
             using (var fs = new MemoryStream())
             {
@@ -50,7 +50,7 @@ namespace Utility.Text
         /// <param name="isProtected"></param>
         /// <param name="password">密码</param>
         /// <returns></returns>
-        static ExcelPackage CreateExcelPackage<T>(List<T> datas, List<Dictionary<string, string>> titleList, List<string> columnNames, string sheetName, bool isProtected, string password)
+        static ExcelPackage CreateExcelPackage<T>(List<T> datas, List<Dictionary<string, string>> titleList, Dictionary<string, string> columnNames, string sheetName, bool isProtected, string password)
         {
             if (datas == null)
             {
@@ -79,7 +79,7 @@ namespace Utility.Text
         /// <param name="columnNames"></param>
         /// <param name="isProtected"></param>
         /// <param name="password">密码</param>
-        static void CreateExcelSheet<T>(List<T> datas, ExcelWorksheet worksheet, List<Dictionary<string, string>> titleList, List<string> columnNames, bool isProtected, string password)
+        static void CreateExcelSheet<T>(List<T> datas, ExcelWorksheet worksheet, List<Dictionary<string, string>> titleList, Dictionary<string, string> columnNames, bool isProtected, string password)
         {
             if (isProtected && !string.IsNullOrEmpty(password))
             {
@@ -120,27 +120,30 @@ namespace Utility.Text
 
             if (columnNames == null || columnNames.Count <= 0)
             {
-                columnNames = typeof(T).GetProperties().Select(x => x.Name).ToList();
+                columnNames = typeof(T).GetProperties().Select(x => x.Name).Distinct().ToDictionary(x => x, y => "");
             }
 
             int row = 1 + titleList.Count;
             foreach (T data in datas)
             {
                 int column = 1;
-                foreach (string name in columnNames)
+                foreach (var keyValue in columnNames)
                 {
-                    var p = data.GetType().GetProperty(name);
-                    if (string.Equals(p.PropertyType.BaseType.Name, "Enum", StringComparison.OrdinalIgnoreCase))
+                    var p = data.GetType().GetProperty(keyValue.Key);
+                    if (!string.IsNullOrEmpty(keyValue.Value))
                     {
-                        worksheet.Cells[row, column].Value = p == null ? "" : GetDisplayName((p.GetValue(data, null) as Enum));
-                    }
-                    else if (string.Equals(p.PropertyType.Name, "decimal", StringComparison.OrdinalIgnoreCase))
-                    {
-                        worksheet.Cells[row, column].Value = p == null ? "" : string.Format("{0:F2}", p.GetValue(data, null));
+                        worksheet.Cells[row, column].Value = p == null ? "" : string.Format(keyValue.Value, p.GetValue(data, null));
                     }
                     else
                     {
-                        worksheet.Cells[row, column].Value = p == null ? "" : Convert.ToString(p.GetValue(data, null));
+                        if (string.Equals(p.PropertyType.BaseType.Name, "Enum", StringComparison.OrdinalIgnoreCase))
+                        {
+                            worksheet.Cells[row, column].Value = p == null ? "" : GetDisplayName((p.GetValue(data, null) as Enum));
+                        }
+                        else
+                        {
+                            worksheet.Cells[row, column].Value = p == null ? "" : Convert.ToString(p.GetValue(data, null));
+                        }
                     }
                     worksheet.Cells[row, column].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);//设置单元格所有边框
                     column++;

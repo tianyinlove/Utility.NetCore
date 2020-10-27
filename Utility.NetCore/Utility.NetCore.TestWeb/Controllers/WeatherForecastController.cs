@@ -47,13 +47,11 @@ namespace Utility.NetCore.TestWeb.Controllers
         public async Task<IActionResult> ExportExcel()
         {
             var data = Get().ToList();
-            var columns = new List<string>()
-            {
-                "Date",
-                "TemperatureC",
-                "TemperatureF",
-                "Summary"
-            };
+            var columns = new Dictionary<string, string>();
+            columns.Add("Date", "{0:yyyy-MM}");
+            columns.Add("TemperatureC", "{0:F2}");
+            columns.Add("TemperatureF", "");
+            columns.Add("Summary", "");
 
             //var titleList = new List<List<ExcelTitle>>();
             //titleList.Add(new List<ExcelTitle>
@@ -71,19 +69,23 @@ namespace Utility.NetCore.TestWeb.Controllers
 
             var titleList = new List<Dictionary<string, string>>();
             var title = new Dictionary<string, string>();
-            title.Add("A1:A2", "日期");
-            title.Add("B1:C1", "温度");
-            title.Add("D1:D2", "总计");
+            title.Add("A1:D1", "统计");
             titleList.Add(title);
 
             title = new Dictionary<string, string>();
-            title.Add("B2", "C");
-            title.Add("C2", "F");
+            title.Add("A3:A4", "日期");
+            title.Add("B3:C3", "温度");
+            title.Add("D3:D4", "总计");
+            titleList.Add(title);
+
+            title = new Dictionary<string, string>();
+            title.Add("B4", "C");
+            title.Add("C4", "F");
             titleList.Add(title);
 
             //var result = ExcelHelper.GetByteToExportExcel(data, columnList, new List<string>(), "Sheet", "统计");
 
-            var result = ExcelHelper.GetByteToExportExcel(data, titleList, columns);
+            var result = ExcelHelper.GetByteToExportExcel(data, titleList, columns, isProtected: true, password: "123");
             return File(result, "application/vnd.android.package-archive", $"统计{DateTime.Now.ToString("yyyyMMddHHmm")}.xlsx");
         }
     }

@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Alex</Authors>
     <Description>通用扩展包</Description>
-    <Version>1.0.12</Version>
+    <Version>1.0.13</Version>
     <RootNamespace>Utility</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
