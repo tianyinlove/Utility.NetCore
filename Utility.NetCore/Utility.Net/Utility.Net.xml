@@ -1,0 +1,1004 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utility.Net</name>
+    </assembly>
+    <members>
+        <member name="T:Utility.Constants.Direction">
+            <summary>
+            列表翻页方向
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.Direction.Up">
+            <summary>
+            向上/刷新
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.Direction.Down">
+            <summary>
+            向下/更多
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.Direction.ReNew">
+            <summary>
+            取新数据
+            </summary>
+        </member>
+        <member name="T:Utility.Constants.LogLevel">
+            <summary>
+            日志等级
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.LogLevel.Trace">
+            <summary>
+            跟踪,有关通常仅用于调试的信息。 这些消息可能包含敏感应用程序数据，因此不得在生产环境中启用它们。 默认情况下禁用。
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.LogLevel.Debug">
+            <summary>
+            调试,有关在开发和调试中可能有用的信息。  由于日志数量过多，因此仅当执行故障排除时，才在生产中启用 Debug 级别日志。
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.LogLevel.Info">
+            <summary>
+            信息记录,用于跟踪应用的常规流。 这些日志通常有长期价值。
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.LogLevel.Warning">
+            <summary>
+            警示，需要关注的程序异常。表示应用流中的异常或意外事件。 可能包括不会中断应用运行但仍需调查的错误或其他条件。 Warning 日志级别常用于已处理的异常。
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.LogLevel.Error">
+            <summary>
+            错误，应该要优化并修复的异常。表示无法处理的错误和异常。 这些消息指示的是当前活动或操作（例如当前 HTTP 请求）中的失败，而不是整个应用中的失败。
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.LogLevel.Critical">
+            <summary>
+            致命错误，表示服务已经出现了某种程度的不可用，需要立即处理。需要立即关注的失败。 例如数据丢失、磁盘空间不足。
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.LogLevel.None">
+            <summary>
+            不处理日志
+            </summary>
+        </member>
+        <member name="T:Utility.Constants.SortType">
+            <summary>
+            排序类型
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.SortType.None">
+            <summary>
+            无效
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.SortType.Asc">
+            <summary>
+            顺序
+            </summary>
+        </member>
+        <member name="F:Utility.Constants.SortType.Desc">
+            <summary>
+            倒序
+            </summary>
+        </member>
+        <member name="T:Utility.Extensions.ConvertExtension">
+            <summary>
+            数据转换扩展
+            </summary>
+        </member>
+        <member name="M:Utility.Extensions.ConvertExtension.ToInt64(System.Byte[])">
+            <summary>
+            把timestamp转成long
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.ConvertExtension.ToRowVersion(System.Int64)">
+            <summary>
+            把long转成timestamp(byte[8])
+            </summary>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.ConvertExtension.Compress(System.String)">
+            <summary>
+            对字符串进行压缩
+            </summary>
+            <param name="str">待压缩的字符串</param>
+            <returns>压缩后的字符串</returns>
+        </member>
+        <member name="M:Utility.Extensions.ConvertExtension.Decompress(System.String)">
+            <summary>
+            对字符串进行解压缩
+            </summary>
+            <param name="str">待解压缩的字符串</param>
+            <returns>解压缩后的字符串</returns>
+        </member>
+        <member name="M:Utility.Extensions.ConvertExtension.Compress(System.Byte[])">
+            <summary>
+            对byte数组进行压缩
+            </summary>
+            <param name="data">待压缩的byte数组</param>
+            <returns>压缩后的byte数组</returns>
+        </member>
+        <member name="M:Utility.Extensions.ConvertExtension.Decompress(System.Byte[])">
+            <summary>
+            对byte数组进行解压
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Extensions.CryptographyExtension">
+            <summary>
+            加解密扩展
+            </summary>
+        </member>
+        <member name="M:Utility.Extensions.CryptographyExtension.Sha1(System.String)">
+            <summary>
+            用sha1计算hash
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.CryptographyExtension.Md5(System.String)">
+            <summary>
+            用md5计算hash
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.CryptographyExtension.RsaEncrypt(System.String,System.String)">
+            <summary>
+            加密
+            </summary>
+            <param name="key">base64密钥</param>
+            <param name="plainText">明文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.CryptographyExtension.RsaDecrypt(System.String,System.String)">
+            <summary>
+            解密
+            </summary>
+            <param name="key">base64密钥</param>
+            <param name="cipherText">密文</param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Extensions.DateTimeExtension">
+            <summary>
+            时间扩展
+            </summary>
+        </member>
+        <member name="F:Utility.Extensions.DateTimeExtension.Epoch">
+            <summary>
+            Utc1970时间的localtime
+            </summary>
+        </member>
+        <member name="M:Utility.Extensions.DateTimeExtension.ValueOf(System.DateTime)">
+            <summary>
+            从 UTC 1970 年 1 月 1 日开始计的毫秒数 。
+            </summary>
+            <param name="datetime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.DateTimeExtension.ValueOf(System.DateTimeOffset)">
+            <summary>
+            从 UTC 1970 年 1 月 1 日开始计的毫秒数 。
+            </summary>
+            <param name="datetime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.DateTimeExtension.ToDateTime(System.Int64)">
+            <summary>
+            返回当前时间
+            </summary>
+            <param name="dateVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.DateTimeExtension.ToDateTimeOffset(System.Int64)">
+            <summary>
+            返回当前时间
+            </summary>
+            <param name="dateVal"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Extensions.EnumExtension">
+            <summary>
+            枚举扩展
+            </summary>
+        </member>
+        <member name="M:Utility.Extensions.EnumExtension.GetName(System.Enum)">
+            <summary>
+            获取枚举的名称(XmlElementAttribute/XmlArrayAttribute/JsonPropertyAttribute)
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.EnumExtension.GetDescription(System.Enum)">
+            <summary>
+            获取枚举的说明并显示
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Extensions.JsonExtension">
+            <summary>
+            json扩展
+            </summary>
+        </member>
+        <member name="F:Utility.Extensions.JsonExtension.__apiSerializeSetting">
+            <summary>
+            api接口json序列化格式
+            </summary>
+        </member>
+        <member name="F:Utility.Extensions.JsonExtension.__serviceSerializeSetting">
+            <summary>
+            服务接口json序列化格式
+            </summary>
+        </member>
+        <member name="M:Utility.Extensions.JsonExtension.ToJson(System.Object,Newtonsoft.Json.NullValueHandling)">
+            <summary>
+            将数据采用默认配置用Newtonsoft.Json序列化
+            </summary>
+            <param name="data"></param>
+            <param name="nullValueHandling">是否忽略空值，默认不忽略空值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.JsonExtension.FromJson``1(System.String)">
+            <summary>
+            将json采用Newtonsoft.Json默认配置反序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.JsonExtension.ToApiJson(System.Object,System.Boolean)">
+            <summary>
+            将数据json序列化，忽略空值，时间全部转换为UTC1970的毫秒数
+            </summary>
+            <param name="data"></param>
+            <param name="resolveTypeName">是否包含（继承关系）类型信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.JsonExtension.FromApiJson(System.String,System.Type)">
+            <summary>
+            将json反序列化，时间是UTC1970的毫秒数
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.JsonExtension.FromApiJson``1(System.String)">
+            <summary>
+            将json反序列化，时间是UTC1970的毫秒数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Extensions.DateTimeConverter">
+            <summary>
+            json序列化，时间格式转换成long(与utc1970相差的毫秒数)
+            </summary>
+        </member>
+        <member name="M:Utility.Extensions.DateTimeConverter.CanConvert(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.DateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="objectType"></param>
+            <param name="existingValue"></param>
+            <param name="serializer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.DateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="serializer"></param>
+        </member>
+        <member name="T:Utility.Extensions.DateTimeOffsetConverter">
+            <summary>
+            json序列化，时间格式转换成long(与utc1970相差的毫秒数)
+            </summary>
+        </member>
+        <member name="M:Utility.Extensions.DateTimeOffsetConverter.CanConvert(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.DateTimeOffsetConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="objectType"></param>
+            <param name="existingValue"></param>
+            <param name="serializer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.DateTimeOffsetConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="serializer"></param>
+        </member>
+        <member name="T:Utility.Extensions.ApiCamelCasePropertyNamesContractResolver">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Utility.Extensions.SortExtension">
+            <summary>
+            排序扩展
+            </summary>
+        </member>
+        <member name="M:Utility.Extensions.SortExtension.OrderBy``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.SortExtension.OrderBy``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.SortExtension.OrderByDescending``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.SortExtension.OrderByDescending``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.SortExtension.ThenBy``1(System.Linq.IOrderedQueryable{``0},System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.SortExtension.ThenByDescending``1(System.Linq.IOrderedQueryable{``0},System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.SortExtension.ApplyOrder``1(System.Linq.IQueryable{``0},System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="property"></param>
+            <param name="methodName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Extensions.StringExtension">
+            <summary>
+            字符串扩展
+            </summary>
+        </member>
+        <member name="M:Utility.Extensions.StringExtension.Append(System.String,System.String,System.String)">
+            <summary>
+            添加url参数,value会被UrlEncode，如果key已经存在就不会重复添加
+            </summary>
+            <param name="url">源地址</param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.StringExtension.MaskPhone(System.String)">
+            <summary>
+            格式化手机号码加星显示
+            </summary>
+            <param name="mobile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.StringExtension.IsPhone(System.String)">
+            <summary>
+            是否手机号码
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.StringExtension.ToList(System.String,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <param name="flag">默认按(,|)拆分</param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Http.AsyncHelper">
+            <summary>
+            A Helper class to run Asynchronous functions from synchronous ones
+            https://github.com/tejacques/AsyncBridge/blob/master/src/AsyncBridge/AsyncHelper.cs
+            </summary>
+        </member>
+        <member name="M:Utility.Http.AsyncHelper.RunSync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            同步调用异步方法并避免死锁，https://github.com/tejacques/AsyncBridge
+            </summary>
+            <param name="task"></param>
+        </member>
+        <member name="M:Utility.Http.AsyncHelper.RunSync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            同步调用异步方法并避免死锁，https://github.com/tejacques/AsyncBridge
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="task"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Http.AsyncHelper.AsyncBridge">
+            <summary>
+            A class to bridge synchronous asynchronous methods
+            </summary>
+        </member>
+        <member name="M:Utility.Http.AsyncHelper.AsyncBridge.#ctor">
+            <summary>
+            Constructs the AsyncBridge by capturing the current
+            SynchronizationContext and replacing it with a new
+            ExclusiveSynchronizationContext.
+            </summary>
+        </member>
+        <member name="M:Utility.Http.AsyncHelper.AsyncBridge.Run(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task})">
+            <summary>
+            Execute's an async task with a void return type
+            from a synchronous context
+            </summary>
+            <param name="task">Task to execute</param>
+            <param name="callback">Optional callback</param>
+        </member>
+        <member name="M:Utility.Http.AsyncHelper.AsyncBridge.Run``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Execute's an async task with a T return type
+            from a synchronous context
+            </summary>
+            <typeparam name="T">The type of the task</typeparam>
+            <param name="task">Task to execute</param>
+            <param name="callback">Optional callback</param>
+        </member>
+        <member name="M:Utility.Http.AsyncHelper.AsyncBridge.Run``1(System.Threading.Tasks.Task{``0},System.Action{``0})">
+            <summary>
+            Execute's an async task with a T return type
+            from a synchronous context
+            </summary>
+            <typeparam name="T">The type of the task</typeparam>
+            <param name="task">Task to execute</param>
+            <param name="callback">
+            The callback function that uses the result of the task
+            </param>
+        </member>
+        <member name="M:Utility.Http.AsyncHelper.AsyncBridge.Dispose">
+            <summary>
+            Disposes the object
+            </summary>
+        </member>
+        <member name="P:Utility.Http.AsyncHelper.Wait">
+            <summary>
+            Creates a new AsyncBridge. This should always be used in
+            conjunction with the using statement, to ensure it is disposed
+            </summary>
+        </member>
+        <member name="M:Utility.Http.AsyncHelper.FireAndForget(System.Func{System.Threading.Tasks.Task},System.Action{System.Exception})">
+            <summary>
+            Runs a task with the "Fire and Forget" pattern using Task.Run,
+            and unwraps and handles exceptions
+            </summary>
+            <param name="task">A function that returns the task to run</param>
+            <param name="handle">Error handling action, null by default</param>
+        </member>
+        <member name="T:Utility.Http.AsyncHelper.ExclusiveSynchronizationContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Utility.Model.ApiData">
+            <summary>
+            Api接口数据
+            </summary>
+        </member>
+        <member name="P:Utility.Model.ApiData.Result">
+            <summary>
+            响应的状态消息
+            </summary>
+        </member>
+        <member name="T:Utility.Model.ApiData`1">
+            <summary>
+            Api接口数据
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Utility.Model.ApiData`1.Detail">
+            <summary>
+            具体协议自行定义JSON的对象代入[可选填项]（缺省可以null或空对象{}，甚至不包含该字段）
+            </summary>
+        </member>
+        <member name="T:Utility.Model.ApiException">
+            <summary>
+            api运行异常
+            </summary>
+        </member>
+        <member name="M:Utility.Model.ApiException.#ctor(System.Int32,System.String)">
+            <summary>
+            抛出api异常并发送到接口输出
+            </summary>
+            <param name="code"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Utility.Model.ApiException.#ctor(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            抛出http异常
+            </summary>
+            <param name="code"></param>
+            <param name="message"></param>
+        </member>
+        <member name="P:Utility.Model.ApiException.AutoLog">
+            <summary>
+            是否自动保存日志
+            </summary>
+        </member>
+        <member name="P:Utility.Model.ApiException.StatusCode">
+            <summary>
+            接口状态码
+            </summary>
+        </member>
+        <member name="T:Utility.Model.ApiStatus">
+            <summary>
+            接口响应的状态消息
+            </summary>
+        </member>
+        <member name="M:Utility.Model.ApiStatus.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Utility.Model.ApiStatus.#ctor(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="code"></param>
+            <param name="msg"></param>
+        </member>
+        <member name="P:Utility.Model.ApiStatus.Code">
+            <summary>
+            接口状态
+            </summary>
+        </member>
+        <member name="P:Utility.Model.ApiStatus.Msg">
+            <summary>
+            提示信息[可选填项]（缺省可以null或空字符串，甚至不包含该字段）
+            </summary>
+        </member>
+        <member name="P:Utility.Model.ApiStatus.UpdateTime">
+            <summary>
+            服务端计算时间
+            </summary>
+        </member>
+        <member name="P:Utility.Model.ApiStatus.ViewState">
+            <summary>
+            数据状态（下次请求相同的接口时回传）
+            </summary>
+        </member>
+        <member name="P:Utility.Model.ApiStatus.MinInterval">
+            <summary>
+            最小请求间隔(秒)
+            </summary>
+        </member>
+        <member name="P:Utility.Model.ApiStatus.Identifier">
+            <summary>
+            请求标识（从请求获取并原样返回）
+            </summary>
+        </member>
+        <member name="T:Utility.Model.Page.IndexPageRequest">
+            <summary>
+            按页码分页参数
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.IndexPageRequest.PageIndex">
+            <summary>
+            当前页码，从0开始
+            </summary>
+        </member>
+        <member name="T:Utility.Model.Page.IndexPageResult`1">
+            <summary>
+            按页码分页的结果
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.IndexPageResult`1.Items">
+            <summary>
+            分页数据
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.IndexPageResult`1.Total">
+            <summary>
+            总数
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.IndexPageResult`1.PageIndex">
+            <summary>
+            当前页码(从0开始)
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.IndexPageResult`1.PageSize">
+            <summary>
+            翻页大小
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.IndexPageResult`1.MaxPage">
+            <summary>
+            最大页码(从0开始)
+            </summary>
+        </member>
+        <member name="T:Utility.Model.Page.PageRequest">
+            <summary>
+            分页参数
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.PageRequest.SortBy">
+            <summary>
+            排序方式,可以为多个排序
+            </summary>
+        </member>
+        <member name="F:Utility.Model.Page.PageRequest._pageSize">
+            <summary>
+            翻页大小
+            </summary>
+        </member>
+        <member name="F:Utility.Model.Page.PageRequest._defaultPageSize">
+            <summary>
+            分页大小默认值
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.PageRequest.PageSize">
+            <summary>
+            翻页大小
+            </summary>
+        </member>
+        <member name="M:Utility.Model.Page.PageRequest.SetDefaultPageSize(System.Int32)">
+            <summary>
+            分页大小默认值
+            </summary>
+        </member>
+        <member name="T:Utility.Model.Page.SlidePageRequest">
+            <summary>
+            分页参数
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.SlidePageRequest.Direction">
+            <summary>
+            翻页方向
+            </summary>
+        </member>
+        <member name="T:Utility.Model.Page.SlidePageResult`1">
+            <summary>
+            简单的分页列表
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Utility.Model.Page.SlidePageResult`1.List">
+            <summary>
+            普通列表
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.SlidePageResult`1.Flush">
+            <summary>
+            是否清空历史数据
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.SlidePageResult`1.End">
+            <summary>
+            是否结束翻页
+            </summary>
+        </member>
+        <member name="T:Utility.Model.Page.SortSelector">
+            <summary>
+            排序方式
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.SortSelector.SortKey">
+            <summary>
+            排序关键字
+            </summary>
+        </member>
+        <member name="P:Utility.Model.Page.SortSelector.SortType">
+            <summary>
+            排序类型
+            </summary>
+        </member>
+        <member name="T:Utility.Signal.AsyncBatchWorkQueue`1">
+            <summary>
+            单线程批处理任务队列
+            </summary>
+            <typeparam name="TItem">等待处理的数据类型</typeparam>
+        </member>
+        <member name="F:Utility.Signal.AsyncBatchWorkQueue`1._signal">
+            <summary>
+            数据通知
+            </summary>
+        </member>
+        <member name="F:Utility.Signal.AsyncBatchWorkQueue`1._queue">
+            <summary>
+            数据队列
+            </summary>
+        </member>
+        <member name="F:Utility.Signal.AsyncBatchWorkQueue`1._pageSize">
+            <summary>
+            每次处理的数据条数
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.AsyncBatchWorkQueue`1.#ctor(System.Int32)">
+            <summary>
+            初始化队列
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.AsyncBatchWorkQueue`1.Worker">
+            <summary>
+            处理线程
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.AsyncBatchWorkQueue`1.Enqueue(`0)">
+            <summary>
+            插入待处理数据
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Utility.Signal.AsyncBatchWorkQueue`1.ProcessAsync(System.Collections.Generic.List{`0})">
+            <summary>
+            处理一批数据
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Signal.AsyncWorkQueue`1">
+            <summary>
+            单线程任务队列
+            </summary>
+            <typeparam name="TData">等待处理的数据类型</typeparam>
+        </member>
+        <member name="F:Utility.Signal.AsyncWorkQueue`1._signal">
+            <summary>
+            数据通知
+            </summary>
+        </member>
+        <member name="F:Utility.Signal.AsyncWorkQueue`1._queue">
+            <summary>
+            数据队列
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.AsyncWorkQueue`1.#ctor">
+            <summary>
+            初始化队列
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.AsyncWorkQueue`1.Worker">
+            <summary>
+            处理线程
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.AsyncWorkQueue`1.Enqueue(`0)">
+            <summary>
+            插入待处理数据
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Utility.Signal.AsyncWorkQueue`1.ProcessOneAsync(`0)">
+            <summary>
+            处理一条数据
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Signal.BatchWorkQueue`1">
+            <summary>
+            单线程批处理任务队列
+            </summary>
+            <typeparam name="TItem">等待处理的数据类型</typeparam>
+        </member>
+        <member name="F:Utility.Signal.BatchWorkQueue`1._signal">
+            <summary>
+            数据通知
+            </summary>
+        </member>
+        <member name="F:Utility.Signal.BatchWorkQueue`1._queue">
+            <summary>
+            数据队列
+            </summary>
+        </member>
+        <member name="F:Utility.Signal.BatchWorkQueue`1._pageSize">
+            <summary>
+            每次处理的数据条数
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.BatchWorkQueue`1.#ctor(System.Int32)">
+            <summary>
+            初始化队列
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.BatchWorkQueue`1.Worker">
+            <summary>
+            处理线程
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.BatchWorkQueue`1.Enqueue(`0)">
+            <summary>
+            插入待处理数据
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Utility.Signal.BatchWorkQueue`1.Process(System.Collections.Generic.List{`0})">
+            <summary>
+            处理一批数据
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Signal.SingleWorkQueue`1">
+            <summary>
+            单线程任务队列
+            </summary>
+            <typeparam name="TData">等待处理的数据类型</typeparam>
+        </member>
+        <member name="F:Utility.Signal.SingleWorkQueue`1._signal">
+            <summary>
+            数据通知
+            </summary>
+        </member>
+        <member name="F:Utility.Signal.SingleWorkQueue`1._queue">
+            <summary>
+            数据队列
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.SingleWorkQueue`1.#ctor">
+            <summary>
+            初始化队列
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.SingleWorkQueue`1.Worker">
+            <summary>
+            处理线程
+            </summary>
+        </member>
+        <member name="M:Utility.Signal.SingleWorkQueue`1.Enqueue(`0)">
+            <summary>
+            插入待处理数据
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Utility.Signal.SingleWorkQueue`1.ProcessOne(`0)">
+            <summary>
+            处理一条数据
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Text.ExcelHelper">
+            <summary>
+            Excel导出
+            </summary>
+        </member>
+        <member name="M:Utility.Text.ExcelHelper.GetByteToExportExcel``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="datas">数据列表</param>
+            <param name="titleList">标题键值对，如果多单元格合并可用("A1:A2", "日期")</param>
+            <param name="columnNames">指定导出数据列和数据格式("Date","{0:yyyy/MM}")</param>
+            <param name="sheetName">表名</param>
+            <param name="isProtected">是否加密码</param>
+            <param name="password">密码</param>
+            <param name="wrapTex">单元格文本是否自动换行</param>
+            <param name="autoFit">是否自动调整列宽</param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Text.ExcelHelper.CreateExcelPackage``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="datas"></param>
+            <param name="titleList"></param>
+            <param name="columnNames"></param>
+            <param name="sheetName"></param>
+            <param name="isProtected"></param>
+            <param name="password">密码</param>
+            <param name="wrapTex">单元格文本是否自动换行</param>
+            <param name="autoFit">是否自动调整列宽</param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Text.ExcelHelper.CreateExcelSheet``1(System.Collections.Generic.List{``0},OfficeOpenXml.ExcelWorksheet,System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="datas"></param>
+            <param name="worksheet"></param>
+            <param name="titleList"></param>
+            <param name="columnNames"></param>
+            <param name="isProtected"></param>
+            <param name="password">密码</param>
+            <param name="wrapTex">单元格文本是否自动换行</param>
+        </member>
+        <member name="M:Utility.Text.ExcelHelper.GetDisplayName(System.Enum)">
+            <summary>
+            
+            </summary>
+            <param name="states"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Text.WordSearcher">
+            <summary>
+            关键词搜索
+            </summary>
+        </member>
+        <member name="M:Utility.Text.WordSearcher.Init(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Char})">
+            <summary>
+            初始化
+            </summary>
+            <param name="words">所有关键词</param>
+            <param name="ignoreCharList">需要忽略的字符</param>
+        </member>
+        <member name="M:Utility.Text.WordSearcher.Match(System.String,System.Int32)">
+            <summary>
+            搜索一段文字当中的关键词
+            </summary>
+            <param name="content">需要搜索的文字</param>
+            <param name="limit">数量限制，找到相应数量敏感词的时候立即返回，0=无限数量</param>
+            <returns></returns>
+        </member>
+        <member name="T:Utility.Text.SearchNode">
+            <summary>
+            查找节点
+            </summary>
+        </member>
+        <member name="P:Utility.Text.SearchNode.Children">
+            <summary>
+            子节点
+            </summary>
+        </member>
+        <member name="P:Utility.Text.SearchNode.Word">
+            <summary>
+            查到的数据
+            </summary>
+        </member>
+    </members>
+</doc>

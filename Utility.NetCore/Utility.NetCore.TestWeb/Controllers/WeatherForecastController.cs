@@ -17,7 +17,7 @@ namespace Utility.NetCore.TestWeb.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Freezing Freezing Freezing", "Bracing Freezing Freezing", "Chilly", "Cool Freezing", "Mild", "Warm", "BalmyFreezing Freezing", "HotFreezing Freezing", "Sweltering  Freezing", "Scorching"
         };
 
         public WeatherForecastController()
@@ -48,7 +48,7 @@ namespace Utility.NetCore.TestWeb.Controllers
         {
             var data = Get().ToList();
             var columns = new Dictionary<string, string>();
-            columns.Add("Date", "{0:yyyy-MM}");
+            columns.Add("Date", "{0:yyyy-MM-dd HH:mm:ss}");
             columns.Add("TemperatureC", "{0:F2}");
             columns.Add("TemperatureF", "");
             columns.Add("Summary", "");
@@ -69,23 +69,15 @@ namespace Utility.NetCore.TestWeb.Controllers
 
             var titleList = new List<Dictionary<string, string>>();
             var title = new Dictionary<string, string>();
-            title.Add("A1:D1", "统计");
-            titleList.Add(title);
-
-            title = new Dictionary<string, string>();
-            title.Add("A3:A4", "日期");
-            title.Add("B3:C3", "温度");
-            title.Add("D3:D4", "总计");
-            titleList.Add(title);
-
-            title = new Dictionary<string, string>();
-            title.Add("B4", "C");
-            title.Add("C4", "F");
+            title.Add("A1:A1", "日期");
+            title.Add("B1:B1", "温度C");
+            title.Add("C1:C1", "温度F");
+            title.Add("D1:D1", "总计");
             titleList.Add(title);
 
             //var result = ExcelHelper.GetByteToExportExcel(data, columnList, new List<string>(), "Sheet", "统计");
 
-            var result = ExcelHelper.GetByteToExportExcel(data, titleList, columns, isProtected: true, password: "123");
+            var result = ExcelHelper.GetByteToExportExcel(data, titleList, columns);
             return File(result, "application/vnd.android.package-archive", $"统计{DateTime.Now.ToString("yyyyMMddHHmm")}.xlsx");
         }
     }

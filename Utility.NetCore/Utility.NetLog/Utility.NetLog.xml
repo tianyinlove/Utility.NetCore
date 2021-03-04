@@ -1,0 +1,381 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utility.NetLog</name>
+    </assembly>
+    <members>
+        <member name="T:Utility.Configuration.LogConfig">
+            <summary>
+            日志设置
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.LogConfig.ApplicationName">
+            <summary>
+            系统名称
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.LogConfig.Text">
+            <summary>
+            文本日志
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.LogConfig.Aliyun">
+            <summary>
+            阿里云日志上传
+            </summary>
+        </member>
+        <member name="T:Utility.Configuration.TextOptions">
+            <summary>
+            文本日志配置
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.TextOptions.MinLevel">
+            <summary>
+            文件日志最小级别
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.TextOptions.SavePath">
+            <summary>
+            文件保存目录
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.TextOptions.MaxFileCount">
+            <summary>
+            每个类型错误目录下最大保留的文件数
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.TextOptions.MaxLoopCount">
+            <summary>
+            每天的日志文件数
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.TextOptions.MaxFileSize">
+            <summary>
+            每个文件大小上限
+            </summary>
+        </member>
+        <member name="T:Utility.Configuration.AliyunOptions">
+            <summary>
+            阿里云日志服务
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.AliyunOptions.MinLevel">
+            <summary>
+            上传日志级别
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.AliyunOptions.Endpoint">
+            <summary>
+            服务入口
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.AliyunOptions.ProjectName">
+            <summary>
+            项目名
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.AliyunOptions.LogStoreName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.AliyunOptions.AccessKeyId">
+            <summary>
+            访问密钥信息
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.AliyunOptions.AccessKeySecret">
+            <summary>
+            访问密钥信息
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.AliyunOptions.UseProxy">
+            <summary>
+            设置是否使用代理
+            </summary>
+        </member>
+        <member name="T:Utility.Configuration.LogConfigLoader">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Utility.Configuration.LogConfigLoader.AppdataPath">
+            <summary>
+            App_Data
+            </summary>
+        </member>
+        <member name="F:Utility.Configuration.LogConfigLoader._configFileFullName">
+            <summary>
+            配置文件全路径
+            </summary>
+        </member>
+        <member name="F:Utility.Configuration.LogConfigLoader._watcher">
+            <summary>
+            文件监视
+            </summary>
+        </member>
+        <member name="P:Utility.Configuration.LogConfigLoader.CurrentValue">
+            <summary>
+            文件数据
+            </summary>
+        </member>
+        <member name="F:Utility.Configuration.LogConfigLoader._delayMillisecond">
+            <summary>
+            修改后到生效的延迟时间
+            </summary>
+        </member>
+        <member name="F:Utility.Configuration.LogConfigLoader._timer">
+            <summary>
+            读取配置文件线程定时器
+            </summary>
+        </member>
+        <member name="F:Utility.Configuration.LogConfigLoader._configIsChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Utility.Configuration.LogConfigLoader.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Utility.Configuration.LogConfigLoader.OnConfigFileChanged(System.Object)">
+            <summary>
+            定时器
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:Utility.Configuration.LogConfigLoader.LoadConfig">
+            <summary>
+            加载配置文件
+            </summary>
+        </member>
+        <member name="M:Utility.Configuration.LogConfigLoader.ConfigFileWatcher_Changed(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            文件有修改
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Utility.NetLog.Logger">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="F:Utility.NetLog.Logger.TraceKey">
+            <summary>
+            记录跟踪id
+            </summary>
+        </member>
+        <member name="F:Utility.NetLog.Logger.ServiceTraceKey">
+            <summary>
+            服务调用跟踪
+            </summary>
+        </member>
+        <member name="F:Utility.NetLog.Logger.MethodNameKey">
+            <summary>
+            服务调用跟踪
+            </summary>
+        </member>
+        <member name="M:Utility.NetLog.Logger.WriteLog(Utility.Constants.LogLevel,System.String)">
+            <summary>
+            记录(非结构化)日志
+            </summary>
+            <param name="level"></param>
+            <param name="message">摘要</param>
+        </member>
+        <member name="M:Utility.NetLog.Logger.WriteLog(Utility.Constants.LogLevel,System.String,System.Object)">
+            <summary>
+            记录(非结构化)日志
+            </summary>
+            <param name="level"></param>
+            <param name="message">摘要</param>
+            <param name="detail">详情</param>
+        </member>
+        <member name="M:Utility.NetLog.Logger.WriteLog(Utility.Constants.LogLevel,System.String,System.Exception)">
+            <summary>
+            记录(非结构化)日志
+            </summary>
+            <param name="level"></param>
+            <param name="message">摘要</param>
+            <param name="exception">异常信息</param>
+        </member>
+        <member name="M:Utility.NetLog.Logger.WriteLog(Utility.Constants.LogLevel,System.String,System.Object,System.Exception,System.String)">
+            <summary>
+            记录(非结构化)日志
+            </summary>
+            <param name="level"></param>
+            <param name="message"></param>
+            <param name="detail">详情</param>
+            <param name="exception">异常信息</param>
+            <param name="module"></param>
+        </member>
+        <member name="M:Utility.NetLog.Logger.WriteLog(Utility.Constants.LogLevel,System.String,System.Object,System.Exception)">
+            <summary>
+            记录(非结构化)日志
+            </summary>
+            <param name="level"></param>
+            <param name="message"></param>
+            <param name="detail">详情</param>
+            <param name="exception">异常信息</param>
+        </member>
+        <member name="T:Utility.NetLog.LogInfo">
+            <summary>
+            日志信息
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.Level">
+            <summary>
+            日志等级
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.TraceId">
+            <summary>
+            事件追踪id
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.Track">
+            <summary>
+            服务调用路径
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.Method">
+            <summary>
+            服务方法名
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.Module">
+            <summary>
+            程序所在模块
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.Message">
+            <summary>
+            日志摘要
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.Detail">
+            <summary>
+            日志详情
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.Exception">
+            <summary>
+            异常详情
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.Time">
+            <summary>
+            日志记录时间
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.Url">
+            <summary>
+            上下文url
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.HttpMethod">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Utility.NetLog.LogInfo.IpAddress">
+            <summary>
+            客户端ip
+            </summary>
+        </member>
+        <member name="T:Utility.Queues.AliyunLogQueue">
+            <summary>
+            阿里云日志上传队列
+            </summary>
+        </member>
+        <member name="P:Utility.Queues.AliyunLogQueue.Client">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Utility.Queues.AliyunLogQueue._options">
+            <summary>
+            当前生效的配置
+            </summary>
+        </member>
+        <member name="F:Utility.Queues.AliyunLogQueue._signal">
+            <summary>
+            数据通知
+            </summary>
+        </member>
+        <member name="F:Utility.Queues.AliyunLogQueue._pageSize">
+            <summary>
+            每次处理的数据条数
+            </summary>
+        </member>
+        <member name="F:Utility.Queues.AliyunLogQueue._queue">
+            <summary>
+            数据队列
+            </summary>
+        </member>
+        <member name="M:Utility.Queues.AliyunLogQueue.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Utility.Queues.AliyunLogQueue.Worker">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Queues.AliyunLogQueue.Enqueue(Aliyun.Api.LogService.Domain.Log.LogInfo)">
+            <summary>
+            加入待传输队列
+            </summary>
+        </member>
+        <member name="M:Utility.Queues.AliyunLogQueue.ReConfig">
+            <summary>
+            创建新的客户端
+            </summary>
+        </member>
+        <member name="T:Utility.Queues.LogFileQueue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Utility.Queues.LogFileQueue._signal">
+            <summary>
+            数据通知
+            </summary>
+        </member>
+        <member name="F:Utility.Queues.LogFileQueue._pageSize">
+            <summary>
+            每次处理的数据条数
+            </summary>
+        </member>
+        <member name="F:Utility.Queues.LogFileQueue._queues">
+            <summary>
+            数据队列
+            </summary>
+        </member>
+        <member name="F:Utility.Queues.LogFileQueue._lastLoopTime">
+            <summary>
+            日志文件拆分时间
+            </summary>
+        </member>
+        <member name="M:Utility.Queues.LogFileQueue.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Utility.Queues.LogFileQueue.Enqueue(Utility.NetLog.LogInfo)">
+            <summary>
+            插入待处理数据
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:Utility.Queues.LogFileQueue.Worker(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+        </member>
+    </members>
+</doc>

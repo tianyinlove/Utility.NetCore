@@ -18,6 +18,9 @@
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <DefineConstants>$(DefineConstants);NET_STD</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DocumentationFile>E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.NetLog\Utility.NetLog.xml</DocumentationFile>
+  </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='net45'">
     <Reference Include="System.Web" />

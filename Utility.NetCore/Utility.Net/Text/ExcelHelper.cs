@@ -26,12 +26,14 @@ namespace Utility.Text
         /// <param name="sheetName">表名</param>
         /// <param name="isProtected">是否加密码</param>
         /// <param name="password">密码</param>
+        /// <param name="wrapTex">单元格文本是否自动换行</param>
+        /// <param name="autoFit">是否自动调整列宽</param>
         /// <returns></returns>
-        public static Byte[] GetByteToExportExcel<T>(List<T> datas, List<Dictionary<string, string>> titleList, Dictionary<string, string> columnNames = null, string sheetName = "Sheet", bool isProtected = false, string password = "")
+        public static Byte[] GetByteToExportExcel<T>(List<T> datas, List<Dictionary<string, string>> titleList, Dictionary<string, string> columnNames = null, string sheetName = "Sheet", bool isProtected = false, string password = "", bool wrapTex = false, bool autoFit = true)
         {
             using (var fs = new MemoryStream())
             {
-                using (var package = CreateExcelPackage(datas, titleList, columnNames, sheetName, isProtected, password))
+                using (var package = CreateExcelPackage(datas, titleList, columnNames, sheetName, isProtected, password, wrapTex, autoFit))
                 {
                     package.SaveAs(fs);
                     return fs.ToArray();
@@ -49,8 +51,10 @@ namespace Utility.Text
         /// <param name="sheetName"></param>
         /// <param name="isProtected"></param>
         /// <param name="password">密码</param>
+        /// <param name="wrapTex">单元格文本是否自动换行</param>
+        /// <param name="autoFit">是否自动调整列宽</param>
         /// <returns></returns>
-        static ExcelPackage CreateExcelPackage<T>(List<T> datas, List<Dictionary<string, string>> titleList, Dictionary<string, string> columnNames, string sheetName, bool isProtected, string password)
+        static ExcelPackage CreateExcelPackage<T>(List<T> datas, List<Dictionary<string, string>> titleList, Dictionary<string, string> columnNames, string sheetName, bool isProtected, string password, bool wrapTex, bool autoFit)
         {
             if (datas == null)
             {
@@ -63,7 +67,11 @@ namespace Utility.Text
             while (pageIndex * pageSize <= datas.Count)
             {
                 var worksheet = package.Workbook.Worksheets.Add(sheetName + pageIndex);
-                CreateExcelSheet(datas.Skip(pageIndex * pageSize).Take(pageSize).ToList(), worksheet, titleList, columnNames, isProtected, password);
+                CreateExcelSheet(datas.Skip(pageIndex * pageSize).Take(pageSize).ToList(), worksheet, titleList, columnNames, isProtected, password, wrapTex);
+                if (autoFit)
+                {
+                    worksheet.Cells.AutoFitColumns();
+                }
                 pageIndex++;
             }
             return package;
@@ -79,7 +87,8 @@ namespace Utility.Text
         /// <param name="columnNames"></param>
         /// <param name="isProtected"></param>
         /// <param name="password">密码</param>
-        static void CreateExcelSheet<T>(List<T> datas, ExcelWorksheet worksheet, List<Dictionary<string, string>> titleList, Dictionary<string, string> columnNames, bool isProtected, string password)
+        /// <param name="wrapTex">单元格文本是否自动换行</param>
+        static void CreateExcelSheet<T>(List<T> datas, ExcelWorksheet worksheet, List<Dictionary<string, string>> titleList, Dictionary<string, string> columnNames, bool isProtected, string password, bool wrapTex)
         {
             if (isProtected && !string.IsNullOrEmpty(password))
             {
@@ -102,8 +111,7 @@ namespace Utility.Text
                 worksheet.Protection.AllowSort = false;
             }
 
-            worksheet.Cells.Style.WrapText = true;
-            worksheet.Cells.Style.ShrinkToFit = true;//单元格自动适应大小
+            worksheet.Cells.Style.WrapText = wrapTex;
 
             foreach (Dictionary<string, string> list in titleList)
             {
