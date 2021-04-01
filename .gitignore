@@ -29,3 +29,7 @@
 /Utility.NetCore/Utility.NetLog/obj
 /Utility.NetCore/.vs/Utility.NetCore/DesignTimeBuild
 /Utility.NetCore/Utility.NetLog/bin/Debug
+/Utility.NetCore/Utility.Locker/bin
+/Utility.NetCore/Utility.Locker/obj
+/Utility.NetCore/Utility.NetCore.ConsoleApp/bin
+/Utility.NetCore/Utility.NetCore.ConsoleApp/obj

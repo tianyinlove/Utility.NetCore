@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Utility.NetLocker</AssemblyName>
+    <RootNamespace>Utility.NetLocker</RootNamespace>
+    <Authors>Alex</Authors>
+    <Company>Alex</Company>
+    <Product>Utility.NetLocker</Product>
+    <Description>通用锁功能</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Utility.NetLocker</PackageId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Locker\Utility.NetLocker.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

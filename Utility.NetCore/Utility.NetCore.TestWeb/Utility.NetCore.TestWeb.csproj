@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Utility.Locker\Utility.NetLocker.csproj" />
     <ProjectReference Include="..\Utility.NetCore\Utility.NetCore.csproj" />
     <ProjectReference Include="..\Utility.NetLog\Utility.NetLog.csproj" />
   </ItemGroup>

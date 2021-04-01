@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility.NetCore.TestWeb", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility.NetLog", "Utility.NetLog\Utility.NetLog.csproj", "{4F1E14D8-CF86-4679-8F5D-9568B6764268}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility.NetLocker", "Utility.Locker\Utility.NetLocker.csproj", "{25CC9884-DA2C-4CBE-93DB-1CF5918AF754}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility.NetCore.ConsoleApp", "Utility.NetCore.ConsoleApp\Utility.NetCore.ConsoleApp.csproj", "{530EF009-AF75-47C2-9B04-0F4A2CA585B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{4F1E14D8-CF86-4679-8F5D-9568B6764268}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F1E14D8-CF86-4679-8F5D-9568B6764268}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F1E14D8-CF86-4679-8F5D-9568B6764268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25CC9884-DA2C-4CBE-93DB-1CF5918AF754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25CC9884-DA2C-4CBE-93DB-1CF5918AF754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25CC9884-DA2C-4CBE-93DB-1CF5918AF754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25CC9884-DA2C-4CBE-93DB-1CF5918AF754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530EF009-AF75-47C2-9B04-0F4A2CA585B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530EF009-AF75-47C2-9B04-0F4A2CA585B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530EF009-AF75-47C2-9B04-0F4A2CA585B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530EF009-AF75-47C2-9B04-0F4A2CA585B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

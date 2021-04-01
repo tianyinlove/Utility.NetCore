@@ -1,5 +1,8 @@
+using Microsoft.Extensions.Caching.Memory;
 using NUnit.Framework;
+using System;
 using Utility.Extensions;
+using Utility.NetLocker;
 
 namespace Utility.NetCore.Test
 {

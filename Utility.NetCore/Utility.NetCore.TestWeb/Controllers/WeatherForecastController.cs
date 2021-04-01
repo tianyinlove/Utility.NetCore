@@ -8,6 +8,10 @@ using Utility.Extensions;
 using Utility.Constants;
 using Utility.NetLog;
 using Utility.Text;
+using Microsoft.Extensions.Caching.Memory;
+using Utility.NetLocker;
+using System.Threading;
+using System.Net.Http;
 
 namespace Utility.NetCore.TestWeb.Controllers
 {
@@ -19,9 +23,47 @@ namespace Utility.NetCore.TestWeb.Controllers
         {
             "Freezing Freezing Freezing", "Bracing Freezing Freezing", "Chilly", "Cool Freezing", "Mild", "Warm", "BalmyFreezing Freezing", "HotFreezing Freezing", "Sweltering  Freezing", "Scorching"
         };
+        private IMemoryCache _memory;
+        private IHttpClientFactory _httpClientFactory;
 
-        public WeatherForecastController()
+        /// <summary>
+        /// 
+        /// </summary>
+        public WeatherForecastController(IMemoryCache memory,
+            IHttpClientFactory httpClientFactory)
         {
+            _memory = memory;
+            _httpClientFactory = httpClientFactory;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public async Task Test2()
+        {
+            Console.WriteLine("开始");
+            Random random = new Random();
+            for (var i = 0; i < 5; i++)
+            {
+                Test3(i, random.Next(1000, 3000));
+            }
+        }
+
+        async Task Test3(int i, int s)
+        {
+            Console.WriteLine($"第{i}条");
+            using (MemoryLocker locker = new MemoryLocker(_memory, "fffff", 0))
+            {
+                Console.WriteLine($"锁状态:{locker.Success}");
+                if (locker.Success)
+                {
+                    var httpClient = _httpClientFactory.CreateClient();
+                    var request = new HttpRequestMessage(HttpMethod.Get, $"http://mobiletest.emoney.cn/emapp/message/Advert/MyPayInfo?Authorization={Guid.NewGuid()}");
+                    await httpClient.SendAsync(request);
+                    Thread.Sleep(s);
+                    Console.WriteLine(i);
+                }
+            }
         }
 
         [HttpGet]
