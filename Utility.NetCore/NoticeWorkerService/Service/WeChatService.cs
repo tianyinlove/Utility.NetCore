@@ -8,6 +8,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Utility.Extensions;
+using Utility.NetLog;
+using Utility.Constants;
 
 namespace NoticeWorkerService.Service
 {
@@ -89,6 +91,12 @@ namespace NoticeWorkerService.Service
             var data = await response.Content.ReadAsStringAsync();
             if (!string.IsNullOrEmpty(data))
             {
+                Logger.WriteLog(LogLevel.Info, "发送消息", new
+                {
+                    request,
+                    data
+                });
+
                 var responseData = data.FromJson<WechatResponse>();
                 if (responseData.ErrCode != 0)
                 {

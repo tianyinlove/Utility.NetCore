@@ -44,12 +44,15 @@ namespace NoticeWorkerService.Service
         /// <returns></returns>
         public async Task SendMessage()
         {
+            Logger.WriteLog(LogLevel.Info, "开始执行服务", _appSettings);
+
             var w = DateTime.Now.DayOfWeek;
             var h = DateTime.Now.Hour;
             if (w == DayOfWeek.Saturday || w == DayOfWeek.Sunday || h < _appSettings.StartHour || h > _appSettings.EndHour)
             {
                 return;
             }
+
             if (_appSettings.NameList == null || _appSettings.NameList.Count <= 0)
             {
                 return;
@@ -57,6 +60,9 @@ namespace NoticeWorkerService.Service
             foreach (var item in _appSettings.NameList)
             {
                 var message = await GetStockInfo1(item);
+
+                Logger.WriteLog(LogLevel.Info, "读取消息", new { name = item, message });
+
                 if (!string.IsNullOrEmpty(message))
                 {
                     var request = new WechatRequest()
