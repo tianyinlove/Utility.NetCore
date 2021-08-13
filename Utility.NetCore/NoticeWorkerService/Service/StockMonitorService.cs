@@ -46,7 +46,7 @@ namespace NoticeWorkerService.Service
         {
             var w = DateTime.Now.DayOfWeek;
             var h = DateTime.Now.Hour;
-            if (w == DayOfWeek.Saturday || w == DayOfWeek.Sunday || h < 9 || h > 15)
+            if (w == DayOfWeek.Saturday || w == DayOfWeek.Sunday || h < _appSettings.StartHour || h > _appSettings.EndHour)
             {
                 return;
             }
