@@ -33,3 +33,7 @@
 /Utility.NetCore/Utility.Locker/obj
 /Utility.NetCore/Utility.NetCore.ConsoleApp/bin
 /Utility.NetCore/Utility.NetCore.ConsoleApp/obj
+/Utility.NetCore/NoticeWorkerService/bin/Debug/net5.0
+/Utility.NetCore/NoticeWorkerService/obj
+/Utility.NetCore/NoticeWorkerService/Properties
+/Utility.NetCore/NoticeWorkerService/bin/Release/net5.0
