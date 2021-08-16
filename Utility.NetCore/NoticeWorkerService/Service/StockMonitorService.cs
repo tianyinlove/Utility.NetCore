@@ -59,7 +59,7 @@ namespace NoticeWorkerService.Service
             }
             foreach (var item in _appSettings.NameList)
             {
-                var message = await GetStockInfo1(item);
+                var message = await GetStockInfo(item);
 
                 Logger.WriteLog(LogLevel.Info, "读取消息", new { name = item, message });
 
@@ -139,7 +139,7 @@ namespace NoticeWorkerService.Service
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        async Task<string> GetStockInfo1(string name)
+        async Task<string> GetStockInfo(string name)
         {
             var result = "";
             var apiUrl = $"https://yktapi.emoney.cn/JinNang/BackData/GetTradePage";
@@ -173,7 +173,7 @@ namespace NoticeWorkerService.Service
                         {
                             list.ForEach(item =>
                             {
-                                result += $"{item.TradeTime.ToString("yyyy-MM-dd HH:mm:ss")} {item.TradeTypeName}({item.Busimsg}) {item.Secuname}({item.StockCode})，成交价：{item.DealPrice}元，成交{item.DealAmount}股;";
+                                result += $"{item.TradeTime.ToString("yyyy-MM-dd HH:mm:ss")} {item.TradeTypeName}({item.Busimsg}) {item.Secuname}({item.StockCode})，成交价：{item.DealPrice}元，成交{item.DealAmount}股，仓位：{item.DealPosition};";
                             });
                         }
                         time = data.Detail.List.Max(x => x.TradeTime);
