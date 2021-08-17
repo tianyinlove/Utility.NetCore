@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>dotnet-NoticeWorkerService-0A1FC77D-F7BA-46DC-BC07-7592BCEA4986</UserSecretsId>
   </PropertyGroup>
 

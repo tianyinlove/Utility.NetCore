@@ -37,3 +37,4 @@
 /Utility.NetCore/NoticeWorkerService/obj
 /Utility.NetCore/NoticeWorkerService/Properties
 /Utility.NetCore/NoticeWorkerService/bin/Release/net5.0
+/Utility.NetCore/NoticeWorkerService/bin/Release/netcoreapp3.1

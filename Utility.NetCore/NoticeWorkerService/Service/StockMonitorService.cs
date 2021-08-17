@@ -89,56 +89,6 @@ namespace NoticeWorkerService.Service
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        async Task<string> GetStockInfo2(string name)
-        {
-            var result = "";
-            var apiUrl = $"http://api.m.emoney.cn/servicecenter/EmappSmartInvestment/StrategyPoolHit/GetStockTradeListById?apikey=zhimakaimen";
-            try
-            {
-                var request = new HttpRequestMessage(HttpMethod.Post, apiUrl);
-                request.Headers.Add("emapp-apikey", "zhimakaimen");
-                request.Content = new StringContent((new
-                {
-                    name = name
-                }).ToJson(), Encoding.UTF8, "application/json");
-                var response = await _httpClientFactory.CreateClient().SendAsync(request);
-                var jsonStr = await response.Content.ReadAsStringAsync();
-                if (!string.IsNullOrEmpty(jsonStr))
-                {
-                    var data = jsonStr.FromJson<ResponseData<List<StockTradeInfo>>>();
-                    if (data != null && data.Detail != null && data.Detail.Count > 0)
-                    {
-                        var cacheKey = $"stocktrade:time:{name.Md5()}";
-                        var time = _memoryCache.Get<DateTime>(cacheKey);
-                        if (time < DateTime.Today)
-                        {
-                            time = DateTime.Today;
-                        }
-                        var list = data.Detail.Where(x => Convert.ToDateTime(x.TradeTime) > time).ToList();
-                        if (list != null && list.Count > 0)
-                        {
-                            list.ForEach(item =>
-                            {
-                                result += $"{item.TradeTime} {item.TradeTypeName}({item.Busimsg}) {item.Secuname}({item.StockCode})，成交价：{item.DealPrice}元，成交{item.DealAmount}股;";
-                            });
-                        }
-                        time = data.Detail.Max(x => Convert.ToDateTime(x.TradeTime));
-                        _memoryCache.Set(cacheKey, time, TimeSpan.FromDays(1));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteLog(Utility.Constants.LogLevel.Error, "读取好股数据异常", apiUrl, ex);
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
         async Task<string> GetStockInfo(string name)
         {
             var result = "";
