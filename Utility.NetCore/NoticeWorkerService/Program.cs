@@ -34,13 +34,20 @@ namespace NoticeWorkerService
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .UseWindowsService()
+                //.UseContentRoot(AppDomain.CurrentDomain.BaseDirectory)
+                //.ConfigureAppConfiguration((hostingContext, config) =>
+                //{
+                //    config.SetBasePath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config"))
+                //        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                //})
                 .ConfigureServices((hostContext, services) =>
                 {
                     var config = new ConfigurationBuilder()
-                        .SetBasePath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config"))
-                        .AddJsonFile("appsettings.json", optional: true)
-                        .Build();
+                           .SetBasePath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config"))
+                           .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                           .Build();
                     services.Configure<AppSettings>(config);
+
                     var _assembly = Assembly.GetExecutingAssembly();
                     services.AddAssembly(_assembly);
                     services.AddHttpClient();
