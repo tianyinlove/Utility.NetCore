@@ -23,5 +23,17 @@ namespace NoticeWorkerService.Core
         /// 
         /// </summary>
         public List<string> NameList { get; set; }
+        /// <summary>
+        /// 接收标签ID，多个用|分隔，最多支持1000个
+        /// </summary>
+        public string ToTag { get; set; }
+        /// <summary>
+        /// 接收成员ID，多个用|分隔，最多支持1000个
+        /// </summary>
+        public string ToUser { get; set; }
+        /// <summary>
+        /// 接收部门ID，多个用|分隔，最多支持1000个
+        /// </summary>
+        public string ToParty { get; set; }
     }
 }

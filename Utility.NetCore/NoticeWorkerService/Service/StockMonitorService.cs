@@ -67,7 +67,9 @@ namespace NoticeWorkerService.Service
                 {
                     var request = new WechatRequest()
                     {
-                        ToTag = "1",
+                        ToTag =_appSettings.ToTag,
+                        ToUser=_appSettings.ToUser,
+                        ToParty=_appSettings.ToParty,
                         MsgType = NoticeType.text.ToString(),
                         Text = new NoticeText { Content = $"{item}:{message}" }
                     };
