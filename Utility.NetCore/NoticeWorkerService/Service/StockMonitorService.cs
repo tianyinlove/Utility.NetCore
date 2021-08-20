@@ -11,6 +11,7 @@ using Utility.NetLog;
 using Utility.Constants;
 using NoticeWorkerService.Core;
 using Microsoft.Extensions.Options;
+using NoticeWorkerService.Data;
 
 namespace NoticeWorkerService.Service
 {
@@ -23,6 +24,7 @@ namespace NoticeWorkerService.Service
         private readonly IMemoryCache _memoryCache;
         private readonly IWeChatService _weChatService;
         private readonly AppSettings _appSettings;
+        private readonly IApiClient _apiClient;
 
         /// <summary>
         /// 
@@ -30,12 +32,14 @@ namespace NoticeWorkerService.Service
         public StockMonitorService(IMemoryCache memoryCache,
             IWeChatService weChatService,
             IOptions<AppSettings> options,
+            IApiClient apiClient,
             IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
             _memoryCache = memoryCache;
             _weChatService = weChatService;
             _appSettings = options.Value;
+            _apiClient = apiClient;
         }
 
         /// <summary>
@@ -59,7 +63,7 @@ namespace NoticeWorkerService.Service
             }
             foreach (var item in _appSettings.NameList)
             {
-                var message = await GetStockInfo(item);
+                var message = await GetStockTradeInfo(item);
 
                 Logger.WriteLog(LogLevel.Info, "读取消息", new { name = item, message });
 
@@ -67,9 +71,9 @@ namespace NoticeWorkerService.Service
                 {
                     var request = new WechatRequest()
                     {
-                        ToTag =_appSettings.ToTag,
-                        ToUser=_appSettings.ToUser,
-                        ToParty=_appSettings.ToParty,
+                        ToTag = _appSettings.ToTag,
+                        ToUser = _appSettings.ToUser,
+                        ToParty = _appSettings.ToParty,
                         MsgType = NoticeType.text.ToString(),
                         Text = new NoticeText { Content = $"{item}:{message}" }
                     };
@@ -91,51 +95,35 @@ namespace NoticeWorkerService.Service
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        async Task<string> GetStockInfo(string name)
+        async Task<string> GetStockTradeInfo(string name)
         {
             var result = "";
-            var apiUrl = $"https://yktapi.emoney.cn/JinNang/BackData/GetTradePage";
             try
             {
-                var request = new HttpRequestMessage(HttpMethod.Post, apiUrl);
-                request.Headers.Add("emapp-apikey", "zhimakaimen");
-                request.Content = new StringContent((new
+                var data = await _apiClient.GetStockTradeListByNameAsync(name);
+                if (data != null && data.Count > 0)
                 {
-                    beginTme = DateTime.Today.ToString("yyyyMMdd"),
-                    endTime = DateTime.Today.ToString("yyyyMMdd"),
-                    jinNangName = name,
-                    pageIndex = 0,
-                    pageSize = 50
-                }).ToJson(), Encoding.UTF8, "application/json");
-                var response = await _httpClientFactory.CreateClient().SendAsync(request);
-                var jsonStr = await response.Content.ReadAsStringAsync();
-                if (!string.IsNullOrEmpty(jsonStr))
-                {
-                    var data = jsonStr.FromJson<ResponseData<StockResponse>>();
-                    if (data != null && data.Detail != null && data.Detail.List != null && data.Detail.List.Count > 0)
+                    var cacheKey = $"stocktrade:time:{name.Md5()}";
+                    var time = _memoryCache.Get<DateTime>(cacheKey);
+                    if (time < DateTime.Today)
                     {
-                        var cacheKey = $"stocktrade:time:{name.Md5()}";
-                        var time = _memoryCache.Get<DateTime>(cacheKey);
-                        if (time < DateTime.Today)
-                        {
-                            time = DateTime.Today;
-                        }
-                        var list = data.Detail.List.Where(x => x.TradeTime > time).ToList();
-                        if (list != null && list.Count > 0)
-                        {
-                            list.ForEach(item =>
-                            {
-                                result += $"{item.TradeTime.ToString("yyyy-MM-dd HH:mm:ss")} {item.TradeTypeName}({item.Busimsg}) {item.Secuname}({item.StockCode})，成交价：{item.DealPrice}元，成交{item.DealAmount}股，仓位：{item.DealPosition};";
-                            });
-                        }
-                        time = data.Detail.List.Max(x => x.TradeTime);
-                        _memoryCache.Set(cacheKey, time, TimeSpan.FromDays(1));
+                        time = DateTime.Today;
                     }
+                    var list = data.Where(x => x.TradeTime > time).ToList();
+                    if (list != null && list.Count > 0)
+                    {
+                        list.ForEach(item =>
+                        {
+                            result += $"{item.TradeTime} {item.Busimsg} {item.Secuname}({item.StockCode})，委托价：{item.EntrustPrice}元({item.Entrustamt}股)，撤单{item.Cancelamt}股，成交价：{item.DealPrice}元({item.DealAmount}股)，原仓位：{item.Stkpospre}，目标仓位：{item.Stkposdst}，成交仓位：{item.DealPosition};";
+                        });
+                    }
+                    time = data.Max(x => x.TradeTime);
+                    _memoryCache.Set(cacheKey, time, TimeSpan.FromDays(1));
                 }
             }
             catch (Exception ex)
             {
-                Logger.WriteLog(LogLevel.Error, "读取好股数据异常", apiUrl, ex);
+                Logger.WriteLog(LogLevel.Error, "读取好股数据异常", name, ex);
             }
             return result;
         }

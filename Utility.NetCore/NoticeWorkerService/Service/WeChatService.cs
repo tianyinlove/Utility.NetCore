@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Utility.Extensions;
 using Utility.NetLog;
 using Utility.Constants;
+using Utility.Model;
+using System.IO;
 
 namespace NoticeWorkerService.Service
 {
