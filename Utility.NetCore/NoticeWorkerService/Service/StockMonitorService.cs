@@ -75,7 +75,7 @@ namespace NoticeWorkerService.Service
                         ToUser = _appSettings.ToUser,
                         ToParty = _appSettings.ToParty,
                         MsgType = NoticeType.text.ToString(),
-                        Text = new NoticeText { Content = $"{item}:{message}" }
+                        Text = new NoticeText { Content = $"{item}\n{message}" }
                     };
 
                     try
@@ -114,7 +114,7 @@ namespace NoticeWorkerService.Service
                     {
                         list.ForEach(item =>
                         {
-                            result += $"{item.TradeTime} {item.Busimsg} {item.Secuname}({item.StockCode})，委托价：{item.EntrustPrice}元({item.Entrustamt}股)，撤单{item.Cancelamt}股，成交价：{item.DealPrice}元({item.DealAmount}股)，原仓位：{item.Stkpospre}，目标仓位：{item.Stkposdst}，成交仓位：{item.DealPosition};";
+                            result += $"{item.TradeTime}\n{item.Busimsg}：{item.Secuname}({item.StockCode})\n委托价：{item.EntrustPrice}元({item.Entrustamt}股)，撤单{item.Cancelamt}股\n成交价：{item.DealPrice}元({item.DealAmount}股)\n原仓位：{item.Stkpospre}\n目标仓位：{item.Stkposdst}\n成交仓位：{item.DealPosition};\n\n";
                         });
                     }
                     time = data.Max(x => x.TradeTime);
