@@ -100,7 +100,7 @@ namespace NoticeWorkerService.Service
             var result = "";
             try
             {
-                var data = await _apiClient.GetStockTradeListByNameAsync(name);
+                var data = await GetStockTradeListByNameAsync(name);
                 if (data != null && data.Count > 0)
                 {
                     var cacheKey = $"stocktrade:time:{name.Md5()}";
@@ -124,6 +124,42 @@ namespace NoticeWorkerService.Service
             catch (Exception ex)
             {
                 Logger.WriteLog(LogLevel.Error, "读取好股数据异常", name, ex);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        async Task<List<StockTradeInfo>> GetStockTradeListByNameAsync(string name)
+        {
+            var result = await _apiClient.GetStockTradeListByNameAsync(name);
+            if (result != null && result.Count > 0)
+            {
+                var cacheKey = $"stocktrade:data:{name.Md5()}";
+                var oldData = _memoryCache.Get<List<StockTradeInfo>>(cacheKey) ?? new List<StockTradeInfo>();
+                if (oldData.Count > 0)
+                {
+                    result = result.Where(x =>
+                        !oldData.Exists(o =>
+                        o.Busimsg == x.Busimsg &&
+                        o.Secuname == x.Secuname &&
+                        o.StockCode == x.StockCode &&
+                        o.Cancelamt == x.Cancelamt &&
+                        o.DealAmount == x.DealAmount &&
+                        o.DealPosition == x.DealPosition &&
+                        o.DealPrice == x.DealPrice &&
+                        o.Entrustamt == x.Entrustamt &&
+                        o.EntrustPrice == x.EntrustPrice &&
+                        o.Stkposdst == x.Stkposdst &&
+                        o.Stkpospre == x.Stkpospre))
+                        .ToList() ?? new List<StockTradeInfo>();
+                }
+
+                oldData.AddRange(result);
+                _memoryCache.Set<List<StockTradeInfo>>(cacheKey, oldData, TimeSpan.FromMinutes(10));
             }
             return result;
         }
