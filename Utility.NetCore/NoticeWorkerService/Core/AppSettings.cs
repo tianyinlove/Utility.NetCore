@@ -22,7 +22,18 @@ namespace NoticeWorkerService.Core
         /// <summary>
         /// 
         /// </summary>
-        public List<string> NameList { get; set; }
+        public List<StockPoolConfig> StockPoolList { get; set; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class StockPoolConfig
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Name { get; set; }
         /// <summary>
         /// 接收标签ID，多个用|分隔，最多支持1000个
         /// </summary>

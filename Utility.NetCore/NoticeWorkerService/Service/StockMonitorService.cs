@@ -57,25 +57,25 @@ namespace NoticeWorkerService.Service
                 return;
             }
 
-            if (_appSettings.NameList == null || _appSettings.NameList.Count <= 0)
+            if (_appSettings.StockPoolList == null || _appSettings.StockPoolList.Count <= 0)
             {
                 return;
             }
-            foreach (var item in _appSettings.NameList)
+            foreach (var item in _appSettings.StockPoolList)
             {
-                var message = await GetStockTradeInfo(item);
+                var message = await GetStockTradeInfo(item.Name);
 
-                Logger.WriteLog(LogLevel.Info, "读取消息", new { name = item, message });
+                Logger.WriteLog(LogLevel.Info, "读取消息", new { item, message });
 
                 if (!string.IsNullOrEmpty(message))
                 {
                     var request = new WechatRequest()
                     {
-                        ToTag = _appSettings.ToTag,
-                        ToUser = _appSettings.ToUser,
-                        ToParty = _appSettings.ToParty,
+                        ToTag = item.ToTag,
+                        ToUser = item.ToUser,
+                        ToParty = item.ToParty,
                         MsgType = NoticeType.text.ToString(),
-                        Text = new NoticeText { Content = $"{item}\n{message}" }
+                        Text = new NoticeText { Content = $"{item.Name}\n{message}" }
                     };
 
                     try
