@@ -411,6 +411,11 @@
             <param name="methodName"></param>
             <returns></returns>
         </member>
+        <member name="T:Utility.Extensions.SnakeCaseState">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Utility.Extensions.StringExtension">
             <summary>
             字符串扩展
@@ -445,6 +450,20 @@
             </summary>
             <param name="str"></param>
             <param name="flag">默认按(,|)拆分</param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.StringExtension.ToSnakeCase(System.String)">
+            <summary>
+            将字符串转换为蛇形策略
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Utility.Extensions.StringExtension.ToCamelCase(System.String)">
+            <summary>
+            将字符串转换为骆驼策略
+            </summary>
+            <param name="s">字符串</param>
             <returns></returns>
         </member>
         <member name="T:Utility.Http.AsyncHelper">
