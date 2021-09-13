@@ -10,6 +10,8 @@ using Utility.Constants;
 using Utility.Model;
 using Utility.NetLog;
 using Utility.Extensions;
+using Microsoft.Extensions.Options;
+using NoticeWorkerService.Core;
 
 namespace NoticeWorkerService.Data
 {
@@ -19,12 +21,16 @@ namespace NoticeWorkerService.Data
     class ApiClient : IApiClient
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly AppSettings _appSettings;
+
         /// <summary>
         /// 
         /// </summary>
-        public ApiClient(IHttpClientFactory httpClientFactory)
+        public ApiClient(IHttpClientFactory httpClientFactory,
+            IOptions<AppSettings> options)
         {
             _httpClientFactory = httpClientFactory;
+            _appSettings = options.Value;
         }
 
         /// <summary>
@@ -37,7 +43,7 @@ namespace NoticeWorkerService.Data
             var result = new List<StockTradeInfo>();
             try
             {
-                var response = await ProtoBufInvokeAsync<StockQryEntrustResponse>("https://emapp.emoney.cn/transfer/10.12.2.120:8556", 9400, new
+                var response = await ProtoBufInvokeAsync<StockQryEntrustResponse>(_appSettings.TradeUrl, 9400, new
                 {
                     token = "",
                     prodid = 0,

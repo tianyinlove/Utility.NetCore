@@ -22,6 +22,10 @@ namespace NoticeWorkerService.Core
         /// <summary>
         /// 
         /// </summary>
+        public string TradeUrl { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public List<StockPoolConfig> StockPoolList { get; set; }
     }
 
@@ -30,6 +34,10 @@ namespace NoticeWorkerService.Core
     /// </summary>
     public class StockPoolConfig
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Id { get; set; }
         /// <summary>
         /// 
         /// </summary>
