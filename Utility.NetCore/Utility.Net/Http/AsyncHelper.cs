@@ -1,11 +1,9 @@
-﻿using System;
+﻿
+#if NETFRAMEWORK
+using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Diagnostics.Tracing;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
 namespace Utility.Http
 {
     using EventQueue = ConcurrentQueue<Tuple<SendOrPostCallback, object>>;
@@ -103,7 +101,7 @@ namespace Utility.Http
         /// <summary>
         /// A class to bridge synchronous asynchronous methods
         /// </summary>
-        internal class AsyncBridge : IDisposable
+        public class AsyncBridge : IDisposable
         {
             private ExclusiveSynchronizationContext CurrentContext;
             private SynchronizationContext OldContext;
@@ -227,7 +225,7 @@ namespace Utility.Http
         /// Creates a new AsyncBridge. This should always be used in
         /// conjunction with the using statement, to ensure it is disposed
         /// </summary>
-        internal static AsyncBridge Wait
+        public static AsyncBridge Wait
         {
             get { return new AsyncBridge(); }
         }
@@ -259,9 +257,6 @@ namespace Utility.Http
             });
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         private class ExclusiveSynchronizationContext : SynchronizationContext
         {
             private readonly AutoResetEvent _workItemsWaiting = new AutoResetEvent(false);
@@ -328,3 +323,4 @@ namespace Utility.Http
         }
     }
 }
+#endif

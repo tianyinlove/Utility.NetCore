@@ -1,29 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Alex</Authors>
-    <Description>通用扩展包</Description>
-    <Version>1.0.15</Version>
-    <RootNamespace>Utility</RootNamespace>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
-    <DefineConstants>$(DefineConstants);NET_FX</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <DefineConstants>$(DefineConstants);NET_STD</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-    <DocumentationFile>E:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.Net\Utility.Net.xml</DocumentationFile>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="EPPlus" Version="5.3.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Alex</Authors>
+		<Description>通用扩展包</Description>
+		<Version>1.0.16</Version>
+		<RootNamespace>Utility</RootNamespace>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net461'">
+		<DefineConstants>$(DefineConstants);NET_FX</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<DefineConstants>$(DefineConstants);NET_STD</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="EPPlus" Version="5.3.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)'=='net461'">
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+	</ItemGroup>
 
 </Project>
