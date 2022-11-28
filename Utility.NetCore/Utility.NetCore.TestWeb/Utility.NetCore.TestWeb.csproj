@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Utility.RabbitMQ" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Utility.Locker\Utility.NetLocker.csproj" />
     <ProjectReference Include="..\Utility.NetCore\Utility.NetCore.csproj" />
     <ProjectReference Include="..\Utility.NetLog\Utility.NetLog.csproj" />

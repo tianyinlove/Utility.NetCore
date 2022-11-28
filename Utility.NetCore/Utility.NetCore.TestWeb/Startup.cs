@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Utility.Extensions;
 
 namespace Utility.NetCore.TestWeb
 {
@@ -26,6 +27,7 @@ namespace Utility.NetCore.TestWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient();
+            services.AddProductService();
             services.AddMemoryCache();
             services.AddControllers();
         }

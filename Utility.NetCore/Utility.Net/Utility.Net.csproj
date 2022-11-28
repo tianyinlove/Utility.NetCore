@@ -5,7 +5,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>Alex</Authors>
 		<Description>通用扩展包</Description>
-		<Version>1.0.16</Version>
+		<Version>1.0.17</Version>
 		<RootNamespace>Utility</RootNamespace>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>

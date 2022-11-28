@@ -43,9 +43,7 @@ namespace NoticeWorkerService
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.Configure<AppSettings>(hostContext.Configuration);
-
-                    var _assembly = Assembly.GetExecutingAssembly();
-                    services.AddAssembly(_assembly);
+                    services.AddProductService();
                     services.AddHttpClient();
                     services.AddMemoryCache();
                     services.AddHostedService<Worker>();
