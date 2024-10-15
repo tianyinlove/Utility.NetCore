@@ -1,10 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
+    <UserSecretsId>f223a1fb-388b-4cff-98b0-ec0f14676049</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
     <PackageReference Include="Utility.RabbitMQ" Version="1.0.1" />
   </ItemGroup>
 
@@ -12,6 +15,12 @@
     <ProjectReference Include="..\Utility.Locker\Utility.NetLocker.csproj" />
     <ProjectReference Include="..\Utility.NetCore\Utility.NetCore.csproj" />
     <ProjectReference Include="..\Utility.NetLog\Utility.NetLog.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Dockerfile">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 

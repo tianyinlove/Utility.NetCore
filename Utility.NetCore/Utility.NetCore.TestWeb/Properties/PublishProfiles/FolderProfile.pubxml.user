@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>H:\project\develop\Alex\Utility.NetCore\Utility.NetCore\Utility.NetCore.TestWeb\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2024-10-15T09:38:22.5066929Z;True|2024-10-15T15:03:50.4202023+08:00;True|2024-10-15T14:57:27.4851605+08:00;True|2024-10-15T14:56:56.6441778+08:00;True|2024-10-15T14:03:26.2979148+08:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>
